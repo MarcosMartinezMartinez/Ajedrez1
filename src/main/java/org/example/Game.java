@@ -22,10 +22,10 @@ public class Game {
 
     public void askPlayers(){
         //boolean fin = false;
-        jugadores.add(new Player(Input.getString("Name of the Player1: ")));
-        jugadores.add(new Player(Input.getString("Name of the Player2: ")));
+        jugadores.add(new Player(Input.getString("Nombre del Jugador1: ")));
+        jugadores.add(new Player(Input.getString("Nombre del Jugador2: ")));
         String anterior = null;
-        jugadores.get(0).setColor(Input.getOptionWhiteBlack("Which color do you want to be Player1? "));
+        jugadores.get(0).setColor(Input.getOptionWhiteBlack("¿De qué color quieres que sea el Jugador 1?(Blak/white) "));
         if (jugadores.get(0).getColor().equals(Piece.Color.WHITE)){
             jugadores.get(1).setColor(Piece.Color.BLACK);
         } else {
@@ -57,7 +57,7 @@ public class Game {
     }
 
     public void turno(Player player){
-        System.out.println(player.getNombre() + " turn");
+        System.out.println(player.getNombre() + " turno");
 
         Coordinate coordinate = null;
         Coordinate coordinateMoverse;
@@ -70,10 +70,10 @@ public class Game {
                      .contains(board.getKing(player.getColor()).getCell().getCoordinate())){
                  System.out.println("Esta en jaque: "+player.getNombre());
              }
-             System.out.println("Wich piece do you wanna move?");
+             System.out.println("¿Qué pieza quieres mover?");
              while (!selectPieza(coordinate, player)){
-                 coordinate = new Coordinate(Input.getString("Give me a valid letter(A-H) and the piece has to be yours: ").charAt(0),
-                         Input.getInteger("Give me a valid number(1-8) and the piece has to be yours: "));
+                 coordinate = new Coordinate(Input.getString("Dame una letra válida (A-H) y la pieza tiene que ser tuya: ").charAt(0),
+                         Input.getInteger("Dame un número válido (1-8) y la pieza tiene que ser tuya: "));
              }
               posibleMoves = board.getCellAt(coordinate).getPiece().getNextMovements();
 
@@ -85,11 +85,11 @@ public class Game {
                  System.out.println("Esta en jaque: "+player.getNombre());
              }
 
-             System.out.println("Where do you wanna move that piece?");
+             System.out.println("¿Dónde quieres mover esa pieza?");
 
                   coordinateMoverse = new Coordinate('0', 0);
-                coordinateMoverse = new Coordinate(Input.getString("Give me a valid letter(A-H) Where your piece can move: ").charAt(0),
-                     Input.getInteger("Give me a valid number(1-8) Where your piece can move: "));
+                coordinateMoverse = new Coordinate(Input.getString("Dame una letra válida (A-H) donde tu pieza puede moverse: ").charAt(0),
+                     Input.getInteger("Dame un número válido (1-8) donde tu pieza puede moverse: "));
 
          }while (!board.contains(coordinateMoverse) || !posibleMoves.contains(coordinateMoverse));
 

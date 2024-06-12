@@ -37,7 +37,7 @@ public class DeletedPieceManagerListImp implements IDeletedPieceManager{
         piezas.add(new Queen(null,null,Queen.Type.BLACK));
         piezas.add(new King(null,null,King.Type.BLACK));
 
-        aux = "         REMAINING PIECES         \n";
+        aux = "         PIEZAS RESTANTES         \n";
         for (Piece pieza: piezas) {
             aux += colorize(" ", Attribute.BACK_COLOR(100,100,100)) + colorize(pieza.toString(), Attribute.BACK_COLOR(100,100,100)) + colorize(" ", Attribute.BACK_COLOR(100,100,100));
         }
@@ -47,7 +47,7 @@ public class DeletedPieceManagerListImp implements IDeletedPieceManager{
         }
         aux += "\n\n";
 
-        aux += "         DELETED PIECES         \n";
+        aux += "         PIEZAS BORRADAS         \n";
 
         for (Piece pieza: piezas) {
             aux += colorize(" ", Attribute.BACK_COLOR(100,100,100)) + colorize(pieza.toString(), Attribute.BACK_COLOR(100,100,100)) + colorize(" ", Attribute.BACK_COLOR(100,100,100));
